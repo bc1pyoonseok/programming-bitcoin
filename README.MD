@@ -1,4 +1,4 @@
-## sample code for studing programming bitcoin
+## sample code programming bitcoin
 
 I'm reading programming bitcoin by jimmy song  
 this repo is for sample code for it
