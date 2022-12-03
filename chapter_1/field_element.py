@@ -39,5 +39,21 @@ class FieldElement:
         num = (self.num * __o.num) % self.prime
         return FieldElement(num, self.prime)
 
-    def __pow__(self, num: int) -> object:
-        return FieldElement((self.num**num) % self.prime, self.prime)
+    def __pow__(self, exponent: int) -> object:
+        exponent = exponent % (self.prime - 1)
+        num = pow(
+            self.num,
+            exponent,
+            self.prime,
+        )
+        return FieldElement(num, self.prime)
+
+    def __truediv__(self, __o: object) -> object:
+        if self.prime != __o.prime:
+            raise TypeError('Cannot mul two numbers in different Fields')
+        num = self.num * pow(
+            __o.num,
+            self.prime - 2,
+            self.prime,
+        ) % self.prime
+        return FieldElement(num, self.prime)
