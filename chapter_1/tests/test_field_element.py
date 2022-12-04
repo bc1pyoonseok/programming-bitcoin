@@ -66,20 +66,32 @@ def test_operations():
             f2_num = get_random_number(1, prime - 1)
             f1 = field_element.FieldElement(f1_num, prime)
             f2 = field_element.FieldElement(f2_num, prime)
-            assert (f1 / f2).num == f1_num * pow(
+            assert operator_func(f1, f2).num == f1_num * pow(
                 f2_num,
                 prime - 2,
                 prime,
             ) % prime
 
-    for test_operater in (
+    def test_operation(operator_func):
+        if operator_func in (
+                operator.add,
+                operator.sub,
+                operator.mul,
+        ):
+            return test_operation_add_mul_sub(operator_func)
+        if operator_func == operator.pow:
+            return test_operation_pow(operator_func)
+        if operator_func == operator.truediv:
+            return test_operation_truediv(operator_func)
+
+    list(
+        map(test_operation, [
             operator.add,
-            operator.sub,
             operator.mul,
-    ):
-        test_operation_add_mul_sub(test_operater)
-    test_operation_pow(operator.pow)
-    test_operation_truediv(operator.truediv)
+            operator.sub,
+            operator.pow,
+            operator.truediv,
+        ]))
 
 
 if __name__ == '__main__':
