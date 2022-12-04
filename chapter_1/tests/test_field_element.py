@@ -53,7 +53,7 @@ def test_operations():
             f1_num = get_random_number(1, prime - 1)
             f1 = field_element.FieldElement(f1_num, prime)
             exponent = get_random_number(-prime, prime - 1)
-            assert (f1**exponent).num == operator_func(
+            assert operator_func(f1, exponent).num == operator_func(
                 f1_num,
                 exponent % (prime - 1),
             ) % prime
