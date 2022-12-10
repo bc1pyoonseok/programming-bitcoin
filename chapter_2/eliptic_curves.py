@@ -24,17 +24,16 @@ class Point:
                 x1 is None,
                 x2 is None,
                 x1 == x2 and -y1 == y2,
-        ), (__o, self, Point(
-                None,
-                None,
-                self.a,
-                self.b,
-        ), Point(
-                None,
-                None,
-                self.a,
-                self.b,
-        ))):
+        ), (
+                __o,
+                self,
+                Point(
+                    None,
+                    None,
+                    self.a,
+                    self.b,
+                ),
+        )):
             if boolean:
                 return result
         if x1 != x2:
