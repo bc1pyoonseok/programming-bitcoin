@@ -1,10 +1,13 @@
 import sys
 import os
+import random
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import eliptic_curves
 import pytest
+
+get_random_number = lambda start, end: random.randint(start, end - 1)
 
 
 def test_eq():
@@ -24,6 +27,7 @@ def test_add():
     assert p1 + inf == p1
     assert p2 + inf == p2
     assert p1 + p2 == inf
+
 
 
 if __name__ == '__main__':
