@@ -24,9 +24,16 @@ class Point:
                 x1 is None,
                 x2 is None,
                 x1 == x2 and -y1 == y2,
+                self == __o and y1 == 0 * x1,
         ), (
                 __o,
                 self,
+                Point(
+                    None,
+                    None,
+                    self.a,
+                    self.b,
+                ),
                 Point(
                     None,
                     None,

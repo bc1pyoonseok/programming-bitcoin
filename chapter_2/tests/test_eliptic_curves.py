@@ -27,7 +27,8 @@ def test_add():
     assert p1 + inf == p1
     assert p2 + inf == p2
     assert p1 + p2 == inf
-
+    assert p1 + p1 == eliptic_curves.Point(18, 77, 5, 7)
+    assert p2 + p2 == eliptic_curves.Point(18, -77, 5, 7)
 
 
 if __name__ == '__main__':
