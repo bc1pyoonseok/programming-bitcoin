@@ -46,7 +46,7 @@ class Point:
         if x1 != x2:
             s = (y2 - y1) / (x2 - x1)
             x3 = s**2 - x1 - x2
-            y3 = s(x1 - x3) - y1
+            y3 = s * (x1 - x3) - y1
             return Point(x3, y3, self.a, self.b)
         if self == __o:
             s = (3 * x1**2 + self.a) / 2 * y1
