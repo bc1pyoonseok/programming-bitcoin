@@ -23,7 +23,7 @@ class Point:
         for boolean, result in zip((
                 x1 is None,
                 x2 is None,
-                x1 == x2 and -y1 == y2,
+                x1 == x2 and -1 * y1 == y2,
                 self == __o and y1 == 0 * x1,
         ), (
                 __o,
@@ -53,3 +53,14 @@ class Point:
             x3 = s**2 - 2 * x1
             y3 = s * (x1 - x3) - y1
             return Point(x3, y3, self.a, self.b)
+
+    def __rmul__(self, coefficient):
+        coef = coefficient
+        current = self
+        result = Point(None, None, self.a, self.b)
+        while coef:
+            if coef & 1:
+                result += current
+        current += current
+        coef >>= 1
+        return result
